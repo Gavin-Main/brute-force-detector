@@ -3,7 +3,9 @@ Project: brute-force-detector
 
 File: main.py
 
-Description: 
+Description: Serves as the main entry point for the Brute Force Detector application.
+             Handles command-line arguments, validates user input, coordinates SSH log
+             parsing and brute-force detection, and generates security alert reports.
 
 Created by: Gavin Main
 

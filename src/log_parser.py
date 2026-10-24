@@ -3,7 +3,9 @@ Project: brute-force-detector
 
 File: log_parser.py
 
-Description: 
+Description: Reads and parses SSH authentication logs to extract timestamps, source IP
+             addresses, usernames, and authentication results. Validates extracted
+             information and converts matching log entries into structured event data.
 
 Created by: Gavin Main
 

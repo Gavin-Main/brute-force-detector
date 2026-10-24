@@ -3,7 +3,9 @@ Project: brute-force-detector
 
 File: detector.py
 
-Description: 
+Description: Analyzes SSH authentication events to identify potential brute-force attacks.
+             Groups failed login attempts by source IP address and uses a sliding-window
+             algorithm to detect repeated failures within a configurable time period.
 
 Created by: Gavin Main
 

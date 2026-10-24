@@ -3,7 +3,9 @@ Project: brute-force-detector
 
 File: alerts.py
 
-Description: 
+Description: Handles the formatting, display, and export of detected security alerts.
+             Presents suspicious authentication activity in the terminal and generates
+             structured JSON reports containing relevant threat information.
 
 Created by: Gavin Main
 

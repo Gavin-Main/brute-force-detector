@@ -3,7 +3,9 @@ Project: brute-force-detector
 
 File: test_detector.py
 
-Description: 
+Description: Contains automated unit tests for the brute-force detection algorithm.
+             Verifies detection thresholds, time-window boundaries, authentication
+             filtering, event ordering, and detection across multiple IP addresses.
 
 Created by: Gavin Main
 
