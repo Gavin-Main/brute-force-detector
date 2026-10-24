@@ -91,7 +91,9 @@ def detect_brute_force(events, threshold=5, window_seconds=60):
                     # Create an alert for the suspicious IP
                     alert = {
                         "ip": ip,
+                        "total_failed_attempts": len(attempts),
                         "failed_attempts": count,
+                        "time_window": window_seconds,
                         "first_attempt": attempts[window_start]["timestamp"],
                         "last_attempt": current_time,
                         "usernames": sorted({
