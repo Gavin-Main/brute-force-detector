@@ -13,6 +13,7 @@ Date Finalized:
 from pathlib import Path
 from log_parser import parse_log_file
 from detector import detect_brute_force
+from alerts import display_alerts, export_alerts
 
 def main():
 
@@ -30,7 +31,7 @@ def main():
         window_seconds=60
     )
 
-    # Display analysis results
+    # Display analysis summary
     print("========================================\n")
     print("========= BRUTE FORCE DETECTOR =========\n")
     print("========================================\n")
@@ -38,19 +39,12 @@ def main():
     print(f"\nTotal authentication events: {len(events)}\n")
     print(f"\nSuspicious IP addresses: {len(alerts)}\n")
 
-    print("\n=========== SECURITY ALERTS ===========\n")
+    # Display alerts in the terminal
+    display_alerts(alerts)
 
-    for alert in alerts:
-        print("\n[HIGH] Potential Brute Force Attack\n")
-        print(f"Source IP: {alert['ip']}\n")
-        print(f"Total Failed Attempts: {alert['total_failed_attempts']}\n")
-        print(f"Failed Attempts in Detection Window: {alert['failed_attempts']}\n")
-        print(f"Time Window: {alert['time_window']} seconds\n")
-        print(f"First Attempt: {alert['first_attempt']}\n")
-        print(f"Last Attempt: {alert['last_attempt']}\n")
-        print(f"Targeted Users: {', '.join(alert['usernames'])}\n")
-
-    print("\n========================================")
+    # Export alerts to a JSON report
+    report_path = project_root / "reports" / "security_alerts.json"
+    export_alerts(alerts, report_path)
 
 
 if __name__ == "__main__":
