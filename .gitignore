@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# Generated reports
+reports/*.json
+
+# Local authentication logs
+logs/*.log
+!logs/sample_auth.log
+
+# Environment and editor files
+.env
+.vscode/
