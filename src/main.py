@@ -68,8 +68,27 @@ def main():
     if not log_path.is_absolute():
         log_path = Path.cwd() / log_path
 
-    # Parse the authentication logs
-    events = parse_log_file(log_path)
+    # Verify that the authentication log exists
+    if not log_path.is_file():
+        parser.error(f"Log file not found: {log_path}")
+
+    # Attempt to read and parse the authentication log
+    try:
+        events = parse_log_file(log_path)
+
+    except PermissionError:
+        parser.error(f"Permission denied when reading: {log_path}")
+
+    except UnicodeError:
+        parser.error(f"Unable to decode log file: {log_path}")
+
+    except OSError as error:
+        parser.error(f"Unable to read log file: {error}")
+
+    # Stop if no valid authentication events were found
+    if not events:
+        print(f"\nNo valid SSH authentication events found in: {log_path}")
+        return
 
     # Detect potential brute-force attacks
     alerts = detect_brute_force(
