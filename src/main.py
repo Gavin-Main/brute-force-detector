@@ -9,7 +9,7 @@ Description: Serves as the main entry point for the Brute Force Detector applica
 
 Created by: Gavin Main
 
-Date Finalized: 
+Date Finalized: 10/25/26
 """
 import argparse
 from pathlib import Path

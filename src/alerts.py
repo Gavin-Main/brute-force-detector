@@ -9,7 +9,7 @@ Description: Handles the formatting, display, and export of detected security al
 
 Created by: Gavin Main
 
-Date Finalized: 
+Date Finalized: 10/25/26
 """
 
 import json
